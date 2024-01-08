@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos de build
+/build
+/dist
+
+# Arquivos de configuração específicos do desenvolvedor
+.env
+
+# Arquivos de log e saída de teste
+*.log
+*.json
