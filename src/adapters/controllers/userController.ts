@@ -2,16 +2,17 @@ import { Request, Response } from 'express'
 import CreateUserUseCase from '../../aplication/usecase/user/createUserUseCase'
 import GetUserProfileUseCase from '../../aplication/usecase/user/getUserProfileUseCase'
 import PrismaUserRepository from '../../domain/repositories/user/PrismaUserRepository'
+import User from '../../domain/entities/user'
 
 class UserController {
-    private createUserUseCase: CreateUserUseCase
-    private getUserProfileUseCase: GetUserProfileUseCase
+  private createUserUseCase: CreateUserUseCase
+  private getUserProfileUseCase: GetUserProfileUseCase
 
-    constructor() {
-        const prismaUserRepository = new PrismaUserRepository() 
-        this.createUserUseCase = new CreateUserUseCase(prismaUserRepository)
-        this.getUserProfileUseCase = new GetUserProfileUseCase(prismaUserRepository)
-      }
+  constructor() {
+    const prismaUserRepository = new PrismaUserRepository() 
+    this.createUserUseCase = new CreateUserUseCase(prismaUserRepository)
+    this.getUserProfileUseCase = new GetUserProfileUseCase(prismaUserRepository)
+  }
 
   async createUser(req: Request, res: Response): Promise<void> {
     try {
@@ -26,9 +27,9 @@ class UserController {
   async getUserProfile(req: Request, res: Response): Promise<void> {
     try {
       const userId = req.params.userId
-      const userProfile = await this.getUserProfileUseCase.execute(userId)
+      const userProfile: any = await this.getUserProfileUseCase.execute(userId)
 
-      if (userProfile) {
+      if (userProfile.length > 0) {
         res.json(userProfile)
       } else {
         res.status(404).json({ message: 'Usuário não encontrado' })
