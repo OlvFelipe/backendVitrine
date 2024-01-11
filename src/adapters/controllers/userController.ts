@@ -25,7 +25,7 @@ class UserController {
 
   async getUserProfile(req: Request, res: Response): Promise<void> {
     try {
-      const userId = Number(req.params.userId)
+      const userId = req.params.userId
       const userProfile = await this.getUserProfileUseCase.execute(userId)
 
       if (userProfile) {

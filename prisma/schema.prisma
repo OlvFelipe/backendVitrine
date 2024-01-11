@@ -9,7 +9,12 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
+  id    String  @db.VarChar(36)  @id @default(uuid())
   name  String
   email String @unique
+  address String
+  number Int
+  phone Int
+  document Int
+  shopkeeper Boolean
 }
