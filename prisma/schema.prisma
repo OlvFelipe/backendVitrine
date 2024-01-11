@@ -9,12 +9,61 @@ datasource db {
 }
 
 model User {
-  id    String  @db.VarChar(36)  @id @default(uuid())
-  name  String
-  email String @unique
-  address String
-  number Int
-  phone Int
-  document Int
+  id          String  @db.VarChar(36)  @id @default(uuid())
+  name        String
+  email       String @unique
+  address     String
+  addresNumber Int
+  phone       Int
+  document    Int
   shopkeeper Boolean
+}
+
+model Announcement {
+  id      String  @db.VarChar(36)  @id @default(uuid())
+  vehicle     Vehicle? @relation(fields: [announcementId], references: [id])
+  announcementId String   
+}
+
+model Vehicle {
+  id          String   @id @db.VarChar(36) @default(uuid())
+  brand       String
+  model       String 
+  year        Int
+  km          Int
+  fuel        String
+  ipva        Boolean
+  licensed    Boolean
+  color       String 
+  plate       String
+  gearbox     String
+  bodywork    BodyWork @relation(fields: [bodyworkId], references: [id])
+  bodyworkId  String @unique
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String @unique
+  optional    Optional[]
+  optionalId  String
+  announcement Announcement[]
+  announcementId String 
+}
+
+model BodyWork {
+  id           String   @id @db.VarChar(36) @default(uuid())
+  type         String
+  vehicle      Vehicle?
+  bodyworkId   String
+}
+
+model Category {
+  id          String  @db.VarChar(36)  @id @default(uuid())
+  type        String
+  vehicle     Vehicle?
+  categoryId  String
+}
+
+model Optional {
+  id          String  @db.VarChar(36)  @id @default(uuid())
+  name        String
+  vehicle     Vehicle? @relation(fields: [optionalId], references: [id])
+  optionalId  String
 }

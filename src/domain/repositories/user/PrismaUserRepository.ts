@@ -3,7 +3,7 @@ import UserRepository from './userRepository';
 import prisma from '../../../adapters/database'
 
 class PrismaUserRepository implements UserRepository {
-  async createUser(user: User): Promise<User> {
+  async createUser(user: any): Promise<User> {
     const createdUser = await prisma.user.create({
       data: user,
     })
