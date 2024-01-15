@@ -18,7 +18,7 @@ class UserController {
     try {
       const user = req.body
       const createdUser = await this.createUserUseCase.execute(user)
-      res.status(201).json(createdUser)
+      res.status(201).json({ user: createdUser})
     } catch (error) {
       res.status(500).json({ error: error })
     }
@@ -35,6 +35,7 @@ class UserController {
         res.status(404).json({ message: 'Usuário não encontrado' })
       }
     } catch (error) {
+      console.log('error', error)
       res.status(500).json({ error: error })
     }
   }

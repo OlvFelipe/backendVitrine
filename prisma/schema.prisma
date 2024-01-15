@@ -13,9 +13,9 @@ model User {
   name        String
   email       String @unique
   address     String
-  addresNumber Int
-  phone       Int
-  document    Int
+  addressNumber Int
+  phone       String
+  document    String
   shopkeeper Boolean
 }
 

@@ -5,7 +5,7 @@ interface User {
     shopkeeper: boolean,
     document: number,
     address: String,
-    addresNumber: number,
+    addressNumber: number,
     phone: number
 }
 
