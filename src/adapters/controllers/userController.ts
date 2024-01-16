@@ -2,7 +2,6 @@ import { Request, Response } from 'express'
 import CreateUserUseCase from '../../aplication/usecase/user/createUserUseCase'
 import GetUserProfileUseCase from '../../aplication/usecase/user/getUserProfileUseCase'
 import PrismaUserRepository from '../../domain/repositories/user/PrismaUserRepository'
-import User from '../../domain/entities/user'
 
 class UserController {
   private createUserUseCase: CreateUserUseCase
