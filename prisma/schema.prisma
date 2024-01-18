@@ -23,6 +23,7 @@ model Announcement {
   id      String  @db.VarChar(36)  @id @default(uuid())
   vehicle     Vehicle? @relation(fields: [announcementId], references: [id])
   announcementId String   
+  sold    Boolean @default(false)
 }
 
 model Vehicle {
