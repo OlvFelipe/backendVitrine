@@ -8,6 +8,11 @@ class GetVehicleUseCase {
         const vehicle = await this.vehicleRepository.getVehicleById(vehicleID)
         return vehicle
     }
+
+    async executeAll(): Promise<Vehicle> {
+        const vehicle = await this.vehicleRepository.listAllVehicle()
+        return vehicle
+    }
 }
 
 export default GetVehicleUseCase;

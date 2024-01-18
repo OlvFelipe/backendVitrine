@@ -17,6 +17,10 @@ class PrismaVehicleRepository implements VehicleRepository {
       where: { id: vehicleId },
     })
   }
+
+  async listAllVehicle(): Promise<any> {
+    return await prisma.vehicle.findMany()
+  }
 }
 
 export default PrismaVehicleRepository;
