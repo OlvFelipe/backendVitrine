@@ -50,21 +50,19 @@ model Vehicle {
 
 model BodyWork {
   id           String   @id @db.VarChar(36) @default(uuid())
-  type         String
+  bodywork_type String
   vehicle      Vehicle?
-  bodyworkId   String
 }
 
 model Category {
   id          String  @db.VarChar(36)  @id @default(uuid())
-  type        String
+  category_type String
   vehicle     Vehicle?
-  categoryId  String
 }
 
 model Optional {
   id          String  @db.VarChar(36)  @id @default(uuid())
   name        String
   vehicle     Vehicle? @relation(fields: [optionalId], references: [id])
-  optionalId  String
+  optionalId  String?
 }
