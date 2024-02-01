@@ -1,9 +1,10 @@
-import express from 'express';
+import express from 'express'
 import dotenv from 'dotenv'
 import UserRouter from '../routes/userRoute'
 import VehicleRouter from '../routes/vehicleRoute'
 import BodyworkRoute from '../routes/bodyworkRoute'
-import CategoryRoute from '../routes/categoryRoute';
+import CategoryRoute from '../routes/categoryRoute'
+import OptionalRoute from '../routes/optionalRoute'
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(`${api}`, UserRouter)
 app.use(`${api}`, VehicleRouter)
 app.use(`${api}`, BodyworkRoute)
 app.use(`${api}`, CategoryRoute)
+app.use(`${api}`, OptionalRoute)
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

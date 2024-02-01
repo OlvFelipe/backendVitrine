@@ -6,8 +6,8 @@ class CategoryController {
     private listAllCategoryUseCase: ListAllCategoryUseCase
 
     constructor() {
-        const primaCategoryRepository = new PrismaCategoryRepository()
-        this.listAllCategoryUseCase = new ListAllCategoryUseCase(primaCategoryRepository)
+        const prismaCategoryRepository = new PrismaCategoryRepository()
+        this.listAllCategoryUseCase = new ListAllCategoryUseCase(prismaCategoryRepository)
     }
 
     async listAllCategory(req: Request, res: Response) {
